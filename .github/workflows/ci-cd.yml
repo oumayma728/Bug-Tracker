@@ -1,0 +1,61 @@
+
+name: CI/CD Pipeline 
+
+on:
+  push:
+    branches:
+      - main 
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    # Backend (NestJS)
+    - name: Setup Node.js for backend
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install backend dependencies
+      run: |
+        cd server
+        npm install
+
+    - name: Build backend
+      run: |
+        cd server
+        npm run build
+
+    - name: Test backend
+      run: |
+        cd server
+        npm test
+
+    # Frontend (Next.js)
+    - name: Setup Node.js for frontend
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install frontend dependencies
+      run: |
+        cd client
+        npm install
+
+    - name: Build frontend
+      run: |
+        cd client
+        npm run build
+
+    - name: Test frontend
+      run: |
+        cd client
+        npm test
