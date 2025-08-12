@@ -2,5 +2,10 @@
   "dependencies": {
     "jwt-decode": "^4.0.0",
     "mongoose": "^8.16.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.0.5",
+    "mongodb-memory-server": "^10.2.0"
   }
 }

@@ -53,3 +53,8 @@ jobs:
       run: |
         cd client
         npm run build
+
+    - name: Test frontend
+      run: |
+        cd client
+        npm test
