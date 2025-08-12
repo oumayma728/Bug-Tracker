@@ -1,6 +1,5 @@
 
 name: CI/CD Pipeline 
-//When you push code to your repository’s main branch, or open a pull request targeting main, GitHub will start this workflow automatically.
 on:
   push:
     branches:
