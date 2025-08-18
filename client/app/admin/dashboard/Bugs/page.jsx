@@ -2,22 +2,15 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import {fetchBugs} from "../../../utils/api"
 
 export default function Bugs() {
   const [bugs, setBugs] = useState([]);
 
   useEffect(() => {
-    const fetchBugs = async () => {
-      try {
-        const res = await fetch("http://localhost:8000/bug");
-        const data = await res.json();
-        setBugs(data);
-      } catch (error) {
-        console.error("Failed to fetch bugs", error);
-      }
-    };
-    fetchBugs();
+    fetchBugs().then(data => setBugs(data));
   }, []);
+
 
 
   async function handleDelete(bugId) {
