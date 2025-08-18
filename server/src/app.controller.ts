@@ -9,4 +9,8 @@ export class AppController {
   someProtectedRoute(){
     return {message:'Accessed Resource'};
   }
+  // src/app.controller.ts
+@Get('health')
+health() { return { ok: true, time: new Date().toISOString() }; }
+
 }

@@ -15,7 +15,7 @@ async function bootstrap() {
   }),
 );
   app.enableCors({
-    origin: 'http://localhost:3000', // or '*' to allow all origins (for dev)
+    origin: 'https://bug-tracker-fpqcngqra-oumayma728s-projects.vercel.app', // or '*' to allow all origins (for dev)
     credentials: true,
   });
 
